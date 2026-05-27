@@ -1,0 +1,48 @@
+0-Back BP Median ACC: 0.9
+0-Back Faces Median ACC: 1.0
+0-Back Places Median ACC: 1.0
+0-Back Tools Median ACC: 1.0
+0-Back BP Median ACC Target: 0.875
+0-Back Faces Median ACC Target: 1.0
+0-Back Places Median ACC Target: 1.0
+0-Back Tools Median ACC Target: 0.875
+0-Back BP Median ACC Non-Target: 1.0
+0-Back Faces Median ACC Non-Target: 1.0
+0-Back Places Median ACC Non-Target: 1.0
+0-Back Tools Median ACC Non-Target: 1.0
+2-Back BP Median ACC: 0.9
+2-Back Faces Median ACC: 0.9
+2-Back Places Median ACC: 1.0
+2-Back Tools Median ACC: 1.0
+2-Back BP Median ACC Target: 1.0
+2-Back Faces Median ACC Target: 1.0
+2-Back Places Median ACC Target: 1.0
+2-Back Tools Median ACC Target: 1.0
+2-Back BP Median ACC Non-Target: 0.875
+2-Back Faces Median ACC Non-Target: 0.5
+2-Back Places Median ACC Non-Target: 1.0
+2-Back Tools Median ACC Non-Target: 0.875
+0-Back BP Median RT: 794.555555556
+0-Back Faces Median RT: 708.6
+0-Back Places Median RT: 734.5
+0-Back Tools Median RT: 760.8
+0-Back BP Median RT Target: 852.857142857
+0-Back Faces Median RT Target: 695.0
+0-Back Places Median RT Target: 712.0
+0-Back Tools Median RT Target: 658.0
+0-Back BP Median RT Non-Target: 1009.875
+0-Back Faces Median RT Non-Target: 767.5
+0-Back Places Median RT Non-Target: 726.25
+0-Back Tools Median RT Non-Target: 860.5
+2-Back BP Median RT: 943.333333333
+2-Back Faces Median RT: 809.555555556
+2-Back Places Median RT: 980.0
+2-Back Tools Median RT: 810.4
+2-Back BP Median RT Target: 829.25
+2-Back Faces Median RT Target: 692.0
+2-Back Places Median RT Target: 778.0
+2-Back Tools Median RT Target: 735.0
+2-Back BP Median RT Non-Target: 943.285714286
+2-Back Faces Median RT Non-Target: 754.0
+2-Back Places Median RT Non-Target: 799.625
+2-Back Tools Median RT Non-Target: 943.5

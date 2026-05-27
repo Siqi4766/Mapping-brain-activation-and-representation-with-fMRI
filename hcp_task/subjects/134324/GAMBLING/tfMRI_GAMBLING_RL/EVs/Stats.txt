@@ -1,0 +1,3 @@
+Mean RT: 352.65625
+Percent NLR: 0.0
+NLR as ACC: 1.0

@@ -1,0 +1,4 @@
+Control RT: 1168.93333333
+Control ACC: 1.0
+Relational RT: 1920.91666667
+Relational ACC: 0.916666666667

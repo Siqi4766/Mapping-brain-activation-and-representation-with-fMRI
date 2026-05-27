@@ -1,0 +1,4 @@
+Face Accuracy: 0.933333333333
+Shape Accuracy: 1.0
+Median Face RT: 759.285714286
+Median Shape RT: 771.722222222

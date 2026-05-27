@@ -1,0 +1,8 @@
+Mean RT Mental: 2670.0
+Mean RT Random: 891.666666667
+ACC Mental: 0.5
+ACC Random: 1.0
+Percent Mental: 0.2
+Percent Random: 0.8
+Percent Unsure: 0.0
+Percent No Response: 0.0
