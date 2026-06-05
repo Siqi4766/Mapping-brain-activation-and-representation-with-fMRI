@@ -60,8 +60,6 @@ In the bar chart, the x-axis represented the 12 large-scale functional networks 
 - Right-vs-left contrast ($q < 0.05$): 211 regions
 
 ## Q3
-## 
-
 In Q3, I implemented a generalized linear model (GLM) that modeled the raw BOLD magnetic signal $Y$ of a brain region as a linear combination of all 6 experimental conditions across the entire motor experiment:
 
 $$
@@ -117,3 +115,6 @@ $$
 where $Y_p[t]$ was the measured BOLD signal for brain parcel $p$ at time point $t$, $\beta_{c,p}$ estimated how strongly parcel $p$'s BOLD signal followed condition $c$'s predicted BOLD response, and $\epsilon_p[t]$ was unexplained noise.
 
 For the group level analysis, I focused on the right hand condition. After estimating subject level HRF-aware betas, I tested whether the right hand beta was significantly greater than zero across subjects for each parcel. This identified parcels whose measured BOLD activity reliably followed the HRF-shaped right hand task predictor.
+
+Group level GLM (with double-gamma HRF) beta test found: $131 / 360$ parcels have significantly positive right hand task activation (FDR q < 0.05)
+
