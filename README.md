@@ -118,3 +118,18 @@ For the group level analysis, I focused on the right hand condition. After estim
 
 Group level GLM (with double-gamma HRF) beta test found: $131 / 360$ parcels have significantly positive right hand task activation (FDR q < 0.05)
 
+### Q4 Analysis (For the right hand condition)
+Top left panel: t-Statistic Scatter
+- Each dot is a brain parcel.
+- Almost all dots fall below the dashed y = x line. This shows that the HRF model lowered the t-statistics across the brain.
+
+Top right: t-Statistic Distributions
+- the Q4 HRF model narrowed the t-statistic distribution
+
+Bottom left: Mean Beta Scatter
+- The average estimated Beta (across all 100 subjects) for each parcel under Q3 (x-axis) versus Q4 (y-axis).
+- The relative ordering of activation strength is preserved: regions with the strongest activation in Q3 still show the strongest activation in Q4.
+
+Bottom right: Significant Parcels per Network
+- show how many parcels passed the significance threshold (FDR q < 0.05) inside each specific functional brain network, comparing Q3 (grey) to Q4 (orange).
+
