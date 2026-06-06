@@ -1,6 +1,6 @@
 # Mapping-brain-activation-and-representation-with-fMRI
 
-This was my first independent project on fMRI analysis. If you found any bugs or errors, please pointed them out :)
+This was my first independent project on fMRI analysis. If you find any bugs or errors, please point them out :)
 
 Adapted from the template provided by Neuromatch Academy: https://compneuro.neuromatch.io/_images/MappingBrainRepresentationwithfMRI.svg
 
@@ -9,11 +9,13 @@ Functional magnetic resonance imaging (fMRI) measures brain activity indirectly 
 
 Because the vascular response occurs several seconds after neural activity, fMRI does not directly measure neuronal firing. Instead, neural events are transformed into delayed and temporally smoothed BOLD responses. This relationship is commonly modeled using the Hemodynamic Response Function (HRF), which describes the expected shape of the BOLD response following a brief burst of neural activity.
 
-In task-based fMRI experiments, one could model the timing of experimental events using stimulus vectors. These vectors are convolved with the HRF to generate predictors representing the expected BOLD response for each task condition.
+In task-based fMRI experiments, researchers model the timing of experimental events using stimulus vectors. These vectors are convolved with the HRF to generate predictors representing the expected BOLD response for each task condition. The resulting predictors form a design matrix that can be used to explain fluctuations in the measured BOLD signal.
 
-The General Linear Model (GLM) is then used to estimate how strongly each predictor explains the measured BOLD signal. The resulting regression coefficients (beta weights) quantify the contribution of each task condition to activity within a brain region.
+The Generalized Linear Model (GLM) is then used to estimate how strongly each predictor explains the observed BOLD signal. The resulting regression coefficients (betas) quantify the contribution of each task condition to activity within a brain region. Statistical tests can subsequently be applied to determine which brain regions show reliable task-related activation across subjects.
 
-In this project, I analyze the Human Connectome Project motor task dataset. I construct task regressors for six motor conditions, convolve them with a double-gamma HRF, and fit a GLM to estimate task related activation across cortical parcels. This workflow illustrates the fundamental analysis pipeline used in task based fMRI research.
+Beyond identifying activated regions, modern neuroimaging analyses also investigate how information is represented across the brain. Representational Similarity Analysis (RSA) compares patterns of activity across experimental conditions by constructing Representational Dissimilarity Matrices (RDMs), providing insight into the similarity structure of neural representations.
+
+In this project, I analyzed the Human Connectome Project motor task dataset. I first examined the condition specific activation patterns across cortical parcels, and performed statistical tests to identify significant task-related modulation, and then constructed GLM to model task-related BOLD activity. Next, I implemented a double-gamma Hemodynamic Response Function (HRF) to account for the delayed vascular response measured by fMRI. Finally, I used Representational Similarity Analysis to quantify similarities and differences between neural representations associated with different motor conditions. Together, these analyses illustrated core concepts in task-based fMRI, including activation mapping, statistical inference, hemodynamic modeling, and representational analysis.
 
 ## Dataset
 - included 100 subjects, each with recorded BOLD signals in different experiments: emotion, gambling, language, motor, relational, social, and working memory.
