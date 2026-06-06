@@ -144,3 +144,5 @@ Bottom left: Mean Beta Scatter
 Bottom right: Significant Parcels per Network
 - show how many parcels passed the significance threshold (FDR q < 0.05) inside each specific functional brain network, comparing Q3 (grey) to Q4 (orange).
 
+Brain surface plot:
+- mapped t-statistics as a gradient for no HRF filtered (Q3) vs. HRF filtered (Q4) across 360 cortical regions.
