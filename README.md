@@ -2,7 +2,18 @@
 
 This was my first independent project on fMRI analysis. If you found any bugs or errors, please pointed them out :)
 
+Adapted from the template provided by Neuromatch Academy: https://compneuro.neuromatch.io/_images/MappingBrainRepresentationwithfMRI.svg
+
 ## Background
+Functional magnetic resonance imaging (fMRI) measures brain activity indirectly through the Blood Oxygenation Level Dependent (BOLD) signal. When a population of neurons becomes active, local metabolic demand increases, leading to changes in cerebral blood flow and blood oxygenation. These vascular changes produce fluctuations in the BOLD signal that can be measured throughout the brain.
+
+Because the vascular response occurs several seconds after neural activity, fMRI does not directly measure neuronal firing. Instead, neural events are transformed into delayed and temporally smoothed BOLD responses. This relationship is commonly modeled using the Hemodynamic Response Function (HRF), which describes the expected shape of the BOLD response following a brief burst of neural activity.
+
+In task-based fMRI experiments, one could model the timing of experimental events using stimulus vectors. These vectors are convolved with the HRF to generate predictors representing the expected BOLD response for each task condition.
+
+The General Linear Model (GLM) is then used to estimate how strongly each predictor explains the measured BOLD signal. The resulting regression coefficients (beta weights) quantify the contribution of each task condition to activity within a brain region.
+
+In this project, I analyze the Human Connectome Project motor task dataset. I construct task regressors for six motor conditions, convolve them with a double-gamma HRF, and fit a GLM to estimate task related activation across cortical parcels. This workflow illustrates the fundamental analysis pipeline used in task based fMRI research.
 
 ## Dataset
 - included 100 subjects, each with recorded BOLD signals in different experiments: emotion, gambling, language, motor, relational, social, and working memory.
