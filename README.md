@@ -9,9 +9,9 @@ Functional magnetic resonance imaging (fMRI) measures brain activity indirectly 
 
 Because the vascular response occurs several seconds after neural activity, fMRI does not directly measure neuronal firing. Instead, neural events are transformed into delayed and temporally smoothed BOLD responses. This relationship is commonly modeled using the Hemodynamic Response Function (HRF), which describes the expected shape of the BOLD response following a brief burst of neural activity.
 
-In task-based fMRI experiments, researchers model the timing of experimental events using stimulus vectors. These vectors are convolved with the HRF to generate predictors representing the expected BOLD response for each task condition. The resulting predictors form a design matrix that can be used to explain fluctuations in the measured BOLD signal.
+In task based fMRI experiments, one could model the timing of experimental events using stimulus vectors. These vectors are convolved with the HRF to generate predictors representing the expected BOLD response for each task condition. The resulting predictors form a design matrix that can be used to explain fluctuations in the measured BOLD signal.
 
-The Generalized Linear Model (GLM) is then used to estimate how strongly each predictor explains the observed BOLD signal. The resulting regression coefficients (betas) quantify the contribution of each task condition to activity within a brain region. Statistical tests can subsequently be applied to determine which brain regions show reliable task-related activation across subjects.
+The Generalized Linear Model (GLM) is then used to estimate how strongly each predictor explains the observed BOLD signal. The resulting regression coefficients (betas) quantify the contribution of each task condition to activity within a brain region. Statistical tests can subsequently be applied to determine which brain regions show reliable task related activation across subjects.
 
 Beyond identifying activated regions, modern neuroimaging analyses also investigate how information is represented across the brain. Representational Similarity Analysis (RSA) compares patterns of activity across experimental conditions by constructing Representational Dissimilarity Matrices (RDMs), providing insight into the similarity structure of neural representations.
 
@@ -48,29 +48,29 @@ The data folder had the following organisation:
 - I generated 6 subplots in total, each representing the group average brain activity (mean over 100 subjects and 2 runs) for a specific ON stimulus vs. OFF (rest). The brain regions used as x-axis reference the region definitions in [Glasser et al. (2016)](https://static-content.springer.com/esm/art%3A10.1038%2Fnature18933/MediaObjects/41586_2016_BFnature18933_MOESM330_ESM.pdf). I then further grouped them into specific functional networks.
 
 ## Q2
-Goal: Tested which brain regions were significantly modulated by right-hand or left-hand movement, and which parcels responded more strongly to one hand than the other.
+Goal: Tested which brain regions were significantly modulated by right hand or left hand movement, and which parcels responded more strongly to one hand than the other.
 
 The code performed exactly 360 t-tests (one for each brain region). For a given region, the t-test evaluated the activation values across all 100 subjects. 
 
 Tests:
 
 1. **Right-hand modulation (One-sample t-test):**
-    - **Null Hypothesis ($H_0$):** The mean BOLD response during right-hand movement was equal to the response during rest: $\mu_{rh} - \mu_{rest} = 0$.
-    - **Alternative Hypothesis ($H_1$):** The mean BOLD response during right-hand movement was significantly different from rest: $\mu_{rh} - \mu_{rest} \neq 0$.
+    - **Null Hypothesis ($H_0$):** The mean BOLD response during right hand movement was equal to the response during rest: $\mu_{rh} - \mu_{rest} = 0$.
+    - **Alternative Hypothesis ($H_1$):** The mean BOLD response during right hand movement was significantly different from rest: $\mu_{rh} - \mu_{rest} \neq 0$.
 2. **Left-hand modulation (One-sample t-test):**
-    - **Null Hypothesis ($H_0$):** The mean BOLD response during left-hand movement was equal to the response during rest: $\mu_{lh} - \mu_{rest} = 0$.
-    - **Alternative Hypothesis ($H_1$):** The mean BOLD response during left-hand movement was significantly different from rest: $\mu_{lh} - \mu_{rest} \neq 0$.
+    - **Null Hypothesis ($H_0$):** The mean BOLD response during left hand movement was equal to the response during rest: $\mu_{lh} - \mu_{rest} = 0$.
+    - **Alternative Hypothesis ($H_1$):** The mean BOLD response during left hand movement was significantly different from rest: $\mu_{lh} - \mu_{rest} \neq 0$.
 3. **Right vs Left hand (Paired t-test):**
-    - **Null Hypothesis ($H_0$):** There was no difference in the mean BOLD response between right-hand and left-hand movements: $\mu_{rh} = \mu_{lh}$.
-    - **Alternative Hypothesis ($H_1$):** There was a significant difference in the mean BOLD response between right-hand and left-hand movements: $\mu_{rh} \neq \mu_{lh}$.
+    - **Null Hypothesis ($H_0$):** There was no difference in the mean BOLD response between right hand and left hand movements: $\mu_{rh} = \mu_{lh}$.
+    - **Alternative Hypothesis ($H_1$):** There was a significant difference in the mean BOLD response between right hand and left hand movements: $\mu_{rh} \neq \mu_{lh}$.
 
-Each family of 360 region-wise tests was corrected with Benjamini-Hochberg FDR at $q < 0.05$. This controlled the false discovery rate at 5% among all t-tests.
+Each family of 360 region wise tests was corrected with Benjamini-Hochberg FDR at $q < 0.05$. This controlled the false discovery rate at 5% among all t-tests.
 
 In the bar chart, the x-axis represented the 12 large scale functional networks (grouped 360 regions), and the y-axis showed the count of cortical regions within each network that exhibited statistically significant modulation under each hypothesis. 
 
-- Right-hand modulation ($q < 0.05$): 233 regions
-- Left-hand modulation ($q < 0.05$): 195 regions
-- Right-vs-left contrast ($q < 0.05$): 211 regions
+- Right hand modulation ($q < 0.05$): 233 regions
+- Left hand modulation ($q < 0.05$): 195 regions
+- Right vs. left contrast ($q < 0.05$): 211 regions
 
 ## Q3
 In Q3, I implemented a generalized linear model (GLM) that modeled the raw BOLD magnetic signal $Y$ of a brain region as a linear combination of all 6 experimental conditions across the entire motor experiment:
@@ -90,14 +90,14 @@ Here, $LeftFoot$, $RightFoot$, $LeftHand$, $RightHand$, $Tongue$, and $Cue$ were
 
 To obtain the betas, I followed the 2 levels of analysis from [Mumford et al. (2009)](https://pmc.ncbi.nlm.nih.gov/articles/PMC2719771/#S2): individual level and group level. For the individual level, I fitted the GLM independently on each subject, across all 6 conditions and all parcels to extract the betas of shape $100 \times 6 \times 360$. For a proof of concept for group level analysis, I isolated just the right hand condition, creating a $100 \times 360$ matrix. I then bootstrapped the group mean of betas from just right hand condition over 2000 iterations and computed 95% confidence interval. Finally, I conducted a one-sample t-test across the subjects' isolated right hand betas to determine which regions were significantly activated above zero. (aka which regions were active when subjects moved their right hand?)
 
-group level GLM found: $230 / 360$ parcels had significantly positive right-hand task activation (FDR $q < 0.05$)
+group level GLM found: $230 / 360$ parcels had significantly positive right hand task activation (FDR $q < 0.05$)
 
 ## Q4
 In Q4, I made the GLM more biologically realistic by modeling the delayed BOLD response. The measured fMRI signal was the BOLD signal, which reflected changes in blood oxygenation rather than direct neural activity. Because this vascular response was delayed and temporally smoothed, the BOLD signal did not rise instantly when a task began.
 
 For each motor condition, the HCP event files provided the onset and duration of each task block. These timings were converted into a binary stimulus vector $x_c[t]$, where $x_c[t] = 1$ meant condition $c$ was active at time point $t$, and $x_c[t] = 0$ meant it was inactive.
 
-To approximate how this task-related activity should appear in the BOLD signal, I convolved each stimulus vector with a double-gamma hemodynamic response function (HRF), $h[t]$. Discrete convolution was used because the fMRI signal was sampled at discrete TR time points:
+To approximate how this task related activity should appear in the BOLD signal, I convolved each stimulus vector with a double-gamma hemodynamic response function (HRF), $h[t]$. Discrete convolution was used because the fMRI signal was sampled at discrete TR time points:
 
 $$
 \tilde{x}_c[t] = (x_c * h)[t] = \sum_{k=0}^{T-1} x_c[k]\,h[t-k]
@@ -112,7 +112,7 @@ Y_p[t] =
 \sum_{c=1}^{6} \beta_{c,p}\,\tilde{x}_c[t] + \epsilon_p[t]
 $$
 
-Expanded across the six motor-task conditions:
+Expanded across the six motor task conditions:
 
 $$
 Y_p[t] =
