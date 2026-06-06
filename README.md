@@ -15,7 +15,7 @@ The Generalized Linear Model (GLM) is then used to estimate how strongly each pr
 
 Beyond identifying activated regions, modern neuroimaging analyses also investigate how information is represented across the brain. Representational Similarity Analysis (RSA) compares patterns of activity across experimental conditions by constructing Representational Dissimilarity Matrices (RDMs), providing insight into the similarity structure of neural representations.
 
-In this project, I analyzed the Human Connectome Project motor task dataset. I first examined the condition specific activation patterns across cortical parcels, and performed statistical tests to identify significant task-related modulation, and then constructed GLM to model task-related BOLD activity. Next, I implemented a double-gamma Hemodynamic Response Function (HRF) to account for the delayed vascular response measured by fMRI. Finally, I used Representational Similarity Analysis to quantify similarities and differences between neural representations associated with different motor conditions. Together, these analyses illustrated core concepts in task-based fMRI, including activation mapping, statistical inference, hemodynamic modeling, and representational analysis.
+In this project, I analyzed the Human Connectome Project motor task dataset. I first examined the condition specific activation patterns across cortical parcels, and performed statistical tests to identify significant task related modulation, and then constructed GLM to model task related BOLD activity. Next, I implemented a double-gamma Hemodynamic Response Function (HRF) to account for the delayed vascular response measured by fMRI. Finally, I used Representational Similarity Analysis to quantify similarities and differences between neural representations associated with different motor conditions. Together, these analyses illustrated core concepts in task based fMRI, including activation mapping, statistical inference, hemodynamic modeling, and representational analysis.
 
 ## Dataset
 - included 100 subjects, each with recorded BOLD signals in different experiments: emotion, gambling, language, motor, relational, social, and working memory.
@@ -54,10 +54,10 @@ The code performed exactly 360 t-tests (one for each brain region). For a given 
 
 Tests:
 
-1. **Right-hand modulation (One-sample t-test):**
+1. **Right hand modulation (One-sample t-test):**
     - **Null Hypothesis ($H_0$):** The mean BOLD response during right hand movement was equal to the response during rest: $\mu_{rh} - \mu_{rest} = 0$.
     - **Alternative Hypothesis ($H_1$):** The mean BOLD response during right hand movement was significantly different from rest: $\mu_{rh} - \mu_{rest} \neq 0$.
-2. **Left-hand modulation (One-sample t-test):**
+2. **Left hand modulation (One-sample t-test):**
     - **Null Hypothesis ($H_0$):** The mean BOLD response during left hand movement was equal to the response during rest: $\mu_{lh} - \mu_{rest} = 0$.
     - **Alternative Hypothesis ($H_1$):** The mean BOLD response during left hand movement was significantly different from rest: $\mu_{lh} - \mu_{rest} \neq 0$.
 3. **Right vs Left hand (Paired t-test):**
