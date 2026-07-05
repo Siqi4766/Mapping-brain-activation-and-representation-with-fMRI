@@ -152,7 +152,7 @@ Brain surface plot:
 ## Q5
 Followed the methodology from the [Neuroboros tutorial](https://neuroboros.github.io/tutorials/rsa.html), I computed the whole-brain Representational Dissimilarity Matrix (RDM) by taking the correlation distance between conditions using their spatial pattern of activation. 
 
-1. Compute Correlation Distance: I used `scipy.spatial.distance.pdist(..., metric='correlation')` to compute the $6 \times 6$ correlation distance matrix. This calculated how dissimilar the whole-brain spatial pattern was between every pair of conditions. (correlation distance = 1 - Pearson's r)
+1. Compute Correlation Distance (correlation distance = 1 - Pearson's r)
 2. Visualize the RDM: visualize this $6 \times 6$ distance matrix as a heatmap. 
   - Values closer to 0: the spatial patterns were highly similar
   - Larger values: the spatial patterns were highly dissimilar.
