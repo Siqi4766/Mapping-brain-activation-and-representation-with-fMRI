@@ -1,4 +1,4 @@
-# Mapping-brain-activation-and-representation-with-fMRI
+# Mapping brain activation and representation with fMRI
 
 This was my first independent project on fMRI analysis. If you find any bugs or errors, please point them out :)
 
