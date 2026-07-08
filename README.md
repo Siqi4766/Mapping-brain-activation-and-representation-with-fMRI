@@ -15,7 +15,7 @@ The Generalized Linear Model (GLM) is then used to estimate how strongly each pr
 
 Beyond identifying activated regions, modern neuroimaging analyses also investigate how information is represented across the brain. Representational Similarity Analysis (RSA) compares patterns of activity across experimental conditions by constructing Representational Dissimilarity Matrices (RDMs), providing insight into the similarity structure of neural representations.
 
-In this project, I analyzed the Human Connectome Project motor task dataset. I first examined the condition specific activation patterns across cortical parcels, and performed statistical tests to identify significant task related modulation, and then constructed GLM to model task related BOLD activity. Next, I implemented a double-gamma Hemodynamic Response Function (HRF) to account for the delayed vascular response measured by fMRI. Finally, I used Representational Similarity Analysis to quantify similarities and differences between neural representations associated with different motor conditions. Together, these analyses illustrated core concepts in task based fMRI, including activation mapping, statistical inference, hemodynamic modeling, and representational analysis.
+In this project, I analyzed the Human Connectome Project motor task dataset. I first examined the condition specific activation patterns across cortical parcels, and performed statistical tests to identify significant task related modulation, and then constructed GLM to model task related BOLD activity. Next, I implemented a double-gamma Hemodynamic Response Function (HRF) to account for the delayed vascular response measured by fMRI. Finally, I used Representational Similarity Analysis to quantify similarities and differences between neural representations associated with different motor conditions. Together, these analyses illustrated core concepts in task based fMRI, including activation mapping, statistical inference, hemodynamic response modeling, and representational analysis.
 
 ## Dataset
 - included 100 subjects, each with recorded BOLD signals in different experiments: emotion, gambling, language, motor, relational, social, and working memory.
@@ -152,7 +152,7 @@ Brain surface plot:
 ## Q5
 Followed the methodology from the [Neuroboros tutorial](https://neuroboros.github.io/tutorials/rsa.html), I computed the whole-brain Representational Dissimilarity Matrix (RDM) by taking the correlation distance between conditions using their spatial pattern of activation. 
 
-1. Compute Correlation Distance: I used `scipy.spatial.distance.pdist(..., metric='correlation')` to compute the $6 \times 6$ correlation distance matrix. This calculated how dissimilar the whole-brain spatial pattern was between every pair of conditions. (correlation distance = 1 - Pearson's r)
+1. Compute Correlation Distance (correlation distance = 1 - Pearson's r)
 2. Visualize the RDM: visualize this $6 \times 6$ distance matrix as a heatmap. 
   - Values closer to 0: the spatial patterns were highly similar
   - Larger values: the spatial patterns were highly dissimilar.
